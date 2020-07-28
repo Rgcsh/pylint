@@ -911,7 +911,7 @@ class ImportsChecker(BaseChecker):
         with open(file_abs_path, 'r') as f:
             for line in f.readlines():
                 # 判断相对导入规则
-                if line.startswith('from ...'):
+                if line.startswith('from ..'):
                     self.add_message(
                         "relative-import", node=node
                     )

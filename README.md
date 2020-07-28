@@ -5,7 +5,7 @@
 
 # 二次开发内容
 * 添加了 校验 相对导入(relative-import) 的功能
-* 校验规则为: 检查 每行代码 是否以  'from ...' 开始
+* 校验规则为: 检查 每行代码 是否以  'from ..' 开始
 * 修改文件为: pylint/checkers/imports.py
 
 # 使用示例
