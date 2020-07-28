@@ -9,5 +9,6 @@ Usage:
 """
 
 from ...relative_dir import num  # pylint:disable=relative-beyond-top-level
+from ...relative_dir import num1  # pylint:disable=relative-beyond-top-level
 
-print(num)
+print(num, num1)

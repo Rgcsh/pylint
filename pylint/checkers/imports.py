@@ -41,6 +41,7 @@
 
 import collections
 import copy
+import linecache
 import os
 import sys
 from distutils import sysconfig
@@ -498,6 +499,7 @@ class ImportsChecker(BaseChecker):
     def visit_import(self, node):
         """triggered when an import statement is seen"""
         self._check_reimport(node)
+        self._check_relative_import(node)
         self._check_import_as_rename(node)
         self._check_toplevel(node)
 
@@ -907,14 +909,11 @@ class ImportsChecker(BaseChecker):
             return
 
         frame = node.frame()
+        lineno = node.lineno
         file_abs_path = frame.file
-        with open(file_abs_path, 'r') as f:
-            for line in f.readlines():
-                # 判断相对导入规则
-                if line.startswith('from ..'):
-                    self.add_message(
-                        "relative-import", node=node
-                    )
+        line = linecache.getline(file_abs_path, lineno)
+        if line.startswith('from ..'):
+            self.add_message("relative-import", line=lineno, node=node)
 
     def _report_external_dependencies(self, sect, _, _dummy):
         """return a verbatim layout for displaying dependencies"""
