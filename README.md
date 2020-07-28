@@ -10,7 +10,7 @@
 
 # 使用示例
 * 案例 在 examples/relative_import_tests 文件夹中,通过 运行如下脚本得出示例结果:
-    ````shell script
+    ```
     python use_pylint.py
     ```
 * 输出结果如下:
@@ -21,7 +21,7 @@
 
 # 禁用此功能方法(和其他相同)
 * 所在代码尾部 添加 如下注释
-```
-from ...relative_dir import num  # pylint:disable=relative-import
-```
+    ```
+    from ...relative_dir import num  # pylint:disable=relative-import
+    ```
 * 或者在 pylint.conf等 配置文件的 disable 栏目中添加 relative-import
