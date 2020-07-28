@@ -1,5 +1,5 @@
 astroid==2.4.2
-isort==5.2.0
+isort==4.2.5
 lazy-object-proxy==1.4.3
 mccabe==0.6.1
 pip==20.1.1
@@ -7,4 +7,5 @@ setuptools==49.2.0
 six==1.15.0
 toml==0.10.1
 typed-ast==1.4.1
+wheel==0.34.2
 wrapt==1.12.1
