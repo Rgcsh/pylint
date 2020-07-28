@@ -910,6 +910,10 @@ class ImportsChecker(BaseChecker):
 
         frame = node.frame()
         lineno = node.lineno
+        # 非校验目标
+        if not hasattr(frame, 'file'):
+            return
+
         file_abs_path = frame.file
         line = linecache.getline(file_abs_path, lineno)
         if line.startswith('from ..'):
